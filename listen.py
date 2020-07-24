@@ -4,7 +4,9 @@ robot_ear = speech_recognition.Recognizer()
 with speech_recognition.Microphone() as mic: #Nghe xong sẽ tắt mic
     print("Robot: I'm listening")
     audio = robot_ear.listen(mic)
+try:
+    you = robot_ear.recognize_google(audio)
+except:
+    you = ""
 
-you = robot_ear.recognize_google(audio)
-
-print(you)
+print("You: " + you)
